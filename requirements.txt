@@ -1,0 +1,7 @@
+Flask
+flasgger
+firebase-admin
+APScheduler
+gunicorn
+requests
+python-dotenv

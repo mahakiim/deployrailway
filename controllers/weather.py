@@ -31,7 +31,7 @@ def schedule_job(scheduler: BackgroundScheduler):
     scheduler.add_job(
         upload_to_firebase,
         trigger='interval',
-        seconds=5,
+        minutes=5,
         id='weather_upload_job',
         replace_existing=True
     )

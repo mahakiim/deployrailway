@@ -94,7 +94,7 @@ def schedule_predict(scheduler: BackgroundScheduler):
     scheduler.add_job(
         run_predict_job,           # sekarang jadwalkan run_predict_job
         trigger='interval',
-        seconds=5,                 # atau minutes=5 di production
+        minutes=5,                 # atau minutes=5 di production
         id='predict_job',
         replace_existing=True,
         misfire_grace_time=120

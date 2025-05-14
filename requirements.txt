@@ -5,3 +5,8 @@ APScheduler
 gunicorn
 requests
 python-dotenv
+joblib
+numpy
+flask_cors
+scikit-learn
+xgboost

@@ -9,6 +9,19 @@ weather_bp = Blueprint("weather", __name__)
 
 @weather_bp.route('/trigger', methods=['POST'])
 def manual_trigger():
+
+    """
+    Trigger upload prakiraan cuaca ke Firebase
+    ---
+    tags:
+      - Cuaca
+    responses:
+      200:
+        description: Upload sukses
+      500:
+        description: Upload gagal
+    """
+
     print("[weather] Trigger endpoint called")
     try:
         print("[weather] Starting upload to Firebase...")
@@ -21,6 +34,17 @@ def manual_trigger():
     
 @weather_bp.route('/curah-hujan', methods=['GET'])
 def get_curah_hujan():
+
+    """
+    Ambil data curah hujan terakhir dari Firebase
+    ---
+    tags:
+      - Cuaca
+    responses:
+      200:
+        description: JSON data curah hujan per lokasi
+    """
+
     print("[weather] GET /curah-hujan called")
     data = fetch_all_locations()
     print(f"[weather] Fetched locations: {list(data.keys())}")

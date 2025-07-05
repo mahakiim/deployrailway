@@ -48,7 +48,7 @@ def latest_value(node_dict: dict) -> float:
         return 0.0
     return node_dict.get(sorted(node_dict)[-1], 0.0)
 
-@predict_bp.route('/predict', methods=['POST'])
+@predict_bp.route('/predict', methods=['GET', 'POST'])
 def predict_endpoint():
 
 
@@ -155,9 +155,9 @@ def schedule_predict(scheduler: BackgroundScheduler):
     scheduler.add_job(
         run_predict_job,
         trigger='interval',
-        minutes=5,
+        minutes=1,
         id='predict_job',
         replace_existing=True,
         misfire_grace_time=120
     )
-    logger.info("🗓️ Scheduled job 'predict_job' every 5 minutes")
+    logger.info("🗓️ Scheduled job 'predict_job' every 1 minute")

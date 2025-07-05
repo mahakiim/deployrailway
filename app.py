@@ -42,6 +42,7 @@ swagger_template = {
 }
 
 Swagger(app, config=swagger_config, template=swagger_template)
+
 # Register API blueprints
 app.register_blueprint(predict_bp, url_prefix='/api')
 app.register_blueprint(weather_bp, url_prefix='/api')
